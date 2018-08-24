@@ -6,27 +6,22 @@ import static com.gmail.a1ekskosyak.Arrays.TwoDArrayDs.hourglassSum;
 import static org.junit.Assert.assertEquals;
 
 public class TwoDArrayDsTest {
+
     @BeforeClass
     public static void setUpBeforeClass() {
-        System.out.println("Run before the first test method");
     }
 
     @AfterClass
     public static void tearDownBeforeClass() {
-        System.out.println("Run after the last test method");
     }
 
     @Before
     public void setUp() {
-        System.out.println("Run before each test");
     }
 
     @After
     public void tearDown() {
-        System.out.println("Run after each test");
-        System.out.println("---------------------------");
     }
-
 
     @Test
     public void hourglassSum_ReturnsZero_IfArrayConsistsOfZeroes() {
@@ -45,4 +40,57 @@ public class TwoDArrayDsTest {
         assertEquals(0, result);
     }
 
+    @Test
+    public void hourglassSum_ReturnsSum_IfOnlyOneHourglass() {
+        // given
+        int[][] array = new int[][]{
+                {1, 1, 1, 0, 0, 0},
+                {0, 1, 0, 0, 0, 0},
+                {1, 1, 1, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0}};
+
+        // when
+        int result = hourglassSum(array);
+
+        // then
+        assertEquals(7, result);
+    }
+
+    @Test
+    public void hourglassSum_ReturnsSum_IfArrayHasNegativeValues() {
+        // given
+        int[][] array = new int[][]{
+                {-1, -1, -1, 0, 0, 0},
+                {0, -1, 0, 0, 0, 0},
+                {-1, -1, -1, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0}};
+
+        // when
+        int result = hourglassSum(array);
+
+        // then
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void hourglassSum_ReturnsMaxSum_IfInputHasMultipleHourglasses() {
+        // given
+        int[][] array = new int[][]{
+                {-9, -9, -9, 1, 1, 1},
+                {0, -9, 0, 4, 3, 2},
+                {-9, -9, -9, 1, 2, 3},
+                {0, 0, 8, 6, 6, 0},
+                {0, 0, 0, -2, 0, 0},
+                {0, 0, 1, 2, 4, 0}};
+
+        // when
+        int result = hourglassSum(array);
+
+        // then
+        assertEquals(28, result);
+    }
 }
