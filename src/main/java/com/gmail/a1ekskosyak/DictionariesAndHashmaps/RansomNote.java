@@ -1,4 +1,4 @@
-package com.gmail.a1ekskosyak.dictionaries.and.hashmaps;
+package com.gmail.a1ekskosyak.DictionariesAndHashmaps;
 
 import java.util.HashMap;
 import java.util.Iterator;
